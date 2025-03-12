@@ -22,10 +22,16 @@ public class DoubleLinkedList {
     public Node removeLast() {
         if(length == 0) return null;
         Node temp = tail;
+
         tail = tail.prev;
         tail.next = null;
         temp.prev = null;
         length--;
+
+        if(length == 0) {
+            head = null;
+            tail = null;
+        }
 
         return temp;
     }
